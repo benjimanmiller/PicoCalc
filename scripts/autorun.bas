@@ -1,3 +1,11 @@
+'Autorun
+
+'My startup autorun script
+'By Ben Miller
+'For PicoCalc
+
+CLS
+
 Print "##############################"
 Print "#      Cold's PicoCalc       #"
 Print "#    Computing since 2025    #"
@@ -21,7 +29,7 @@ Print " KBs"
 Print "Remaining Space: ";
 Print Fix(fs);
 Print " KBs"
-Print "Percenage Free: ";
+Print "Percentage Free: ";
 Print Int(per);
 Print "%"
 Print ""

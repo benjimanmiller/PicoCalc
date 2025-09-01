@@ -1,5 +1,6 @@
 # PicoCalc
-Things I am making for the PicoCalc
+Things I am making or have found for the PicoCalc
+
 
 Links to other resources:
 
