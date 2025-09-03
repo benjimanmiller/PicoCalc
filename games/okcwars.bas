@@ -100,7 +100,7 @@ bankbalance = 0
 interest = 5
 
 'locals
-Dim locals(6) As string = ("Edmond", "The Village", "Paseo", "Nichols Hills", "Bricktown", "South Side", "Plaza")
+Dim locals(6) As string = ("Edmond", "The Village", "Paseo", "Nichols Hills", "Brick Town", "South Side", "Plaza")
 
 'Randomizer
 Dim nums(10)
@@ -156,7 +156,7 @@ GUI button 38, "Edmond", 105, 30, 120,25, RGB(black), RGB(red)
 GUI button 39, "The Village", 105, 70,120, 25, RGB(black), RGB(red)
 GUI button 40, "Paseo", 105, 110, 120, 25, RGB(black), RGB(red)
 GUI button 41, "Nichols Hills", 105, 150, 120, 25, RGB(black), RGB(red)
-GUI button 42, "Bricktown", 105, 190, 120, 25, RGB(black), RGB(red)
+GUI button 42, "Brick Town", 105, 190, 120, 25, RGB(black), RGB(red)
 GUI button 43, "South Side", 105, 230,120, 25, RGB(black), RGB(red)
 GUI button 44, "Plaza", 105, 270, 120,25, RGB(black), RGB(red)
 
@@ -209,7 +209,6 @@ GUI caption 77, "", 155, 90, CM, RGB(red), RGB(black)
 GUI caption 78, "", 155, 120, CM, RGB(red), RGB(black)
 GUI button 79, "Restart", 160, 283, 55,25, RGB(black), RGB(red)
 
-
 'Screen Loops
 
 'Name Screen
@@ -243,6 +242,16 @@ GUI Page 2
 GoTo DurScreen
 EndIf 'selection
 EndIf 'enter
+
+'backspace
+If Asc(k$) = 8 Then
+Play tone 1300, 1300, 200
+If selection = 2 Then
+name$ = MID$(name$, 1, LEN(name$) - 1)
+CtrlVal(2) = name$
+EndIf 'selection
+EndIf 'backspace
+
 
 'name input
 If Asc(k$) <> 128 And Asc(k$) <> 129 And Asc(k$) <> 8 Then
@@ -288,13 +297,23 @@ GoTo MainScreen
 EndIf 'selection
 EndIf 'enter
 
+'backspace
+If Asc(k$) = 8 Then
+Play tone 1300, 1300, 200
+If selection = 6 Then
+duration$ = MID$(duration$, 1, LEN(duration$ - 1))
+durval = Val(duration$)
+CtrlVal(6) = STR$(durval)
+EndIf 'selection
+EndIf 'backspace
+
 'duration input
 If Asc(k$) <> 128 And Asc(k$) <> 129 And Asc(k$) <> 8 Then
 If selection = 6 Then
 GUI Bcolour RGB(red), 8
 duration$ = duration$ + k$
 durval = Val(duration$)
-CtrlVal(6) = duration$
+CtrlVal(6) = STR$(durval)
 EndIf 'selection
 EndIf 'input
 
